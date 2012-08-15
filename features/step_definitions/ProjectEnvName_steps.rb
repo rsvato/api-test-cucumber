@@ -18,6 +18,13 @@ When /^I create a project with the name '(.+)' managed by '(\w+)'$/ do |arg1, ar
                                  :headers => {'Content-Type' => 'application/json'})
 end
 
+When /^I create a project with (\d+) characters in the name managed by '(.+)'$/ do |arg1, arg2|
+  name = 'a' * arg1.to_i
+  project = {:name => name, :projectManager => arg2}
+  @last_response = HTTParty.post(@base + "/rest/projects", :basic_auth => @auth, :body => project.to_json,
+                                 :headers => {'Content-Type' => 'application/json'})
+end
+
 Then /^I should get response with code '(\d+)'$/ do |arg1|
   @last_response.code.should == arg1.to_i
 end

@@ -36,3 +36,11 @@ Feature: Unified name rules for projects and environment
     When I create a project with the name '&$%' managed by 'manager'
     Then I should get response with code '400'
     And Project '&$%' should not exist
+
+  Scenario: Empty project name
+    When I create a project with 0 characters in the name managed by 'manager'
+    Then I should get response with code '400'
+
+  Scenario: Too long project name
+    When I create a project with 65 characters in the name managed by 'manager'
+    Then I should get response with code '400'
