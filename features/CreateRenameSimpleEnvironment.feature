@@ -1,8 +1,8 @@
 Feature: Unified name rules for projects and environment. Environment part
 
   Background:
-    Given Genesis is running on host 'localhost' and port '8080'
-    And I am valid admin user with name 'genesis' and password 'genesis'
+    Given Genesis is running
+    And I am valid admin user
     And I create a project with the name 'Environments' managed by 'manager'
     And I create a project with the name 'Environments2' managed by 'manager' 
     And There is a template 'Simple' version '0.1' for project 'Environments'

@@ -1,8 +1,8 @@
 Feature: Unified name rules for projects and environment
 
   Background:
-    Given Genesis is running on host 'localhost' and port '8080'
-    And I am valid admin user with name 'genesis' and password 'genesis'
+    Given Genesis is running
+    And I am valid admin user
 
   Scenario: Valid project name
     Given Project 'project' should not exist

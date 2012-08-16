@@ -2,14 +2,14 @@ require 'httparty'
 require 'genesis_client'
 
 
-Given /^Genesis is running on host '(\w+)' and port '(\d+)'$/ do |arg1, arg2|
-  @client = GenesisClient.new(arg1, arg2)
+Given /^Genesis is running$/ do
+  @client = GenesisClient.new()
   response = @client.ping
   response.code.should == 200
 end
 
-Given /^I am valid admin user with name '(\w+)' and password '(\w+)'$/ do |arg1, arg2|
-  @client.auth = {:username => arg1, :password => arg2}
+Given /^I am valid admin user$/ do
+  #@client.auth = {:username => arg1, :password => arg2}
   response = @client.whoami
   struct = JSON.parse(response.body)
   struct["administrator"].should == true

@@ -1,12 +1,15 @@
 require 'httparty'
+require 'yaml'
 
 class GenesisClient
   include HTTParty
   attr_accessor :auth
 
-  def initialize(host, port)
-    @host = host
-    @port = port
+  def initialize()
+    config = YAML::load(File.open(File.dirname(__FILE__) + "/../config.yml"))
+    @host = config["genesis"]["host"]
+    @port = config["genesis"]["port"]
+    @auth = {:username => config["genesis"]["user"], :password => config["genesis"]["password"] } 
   end
 
 
