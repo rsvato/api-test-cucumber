@@ -34,8 +34,26 @@ class GenesisClient
     post('/projects', :body=>project.to_json)
   end
 
+
   def delete_project(id)
     self.class.delete(path("/projects/#{id}"), :basic_auth => auth)
+  end
+
+  def get_template(project, template, version)
+    get("/projects/#{project}/templates/#{template}/v#{version}")
+  end
+
+  def env_id(project, name)
+    response = get("/projects/#{project}/envs")
+    found = JSON.parse(response.body).select { |e| e["name"] == name }
+    if found.size > 0
+      found[0]
+    end
+  end
+
+  def create_env(id, name, template, version, variables = {})
+    env = {:envName => name, :templateName => template, :templateVersion => version, :variables => variables }
+    post("/projects/#{id}/envs", :body=> env.to_json)
   end
 
   private
