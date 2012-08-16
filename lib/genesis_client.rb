@@ -56,6 +56,11 @@ class GenesisClient
     post("/projects/#{id}/envs", :body=> env.to_json)
   end
 
+  def delete_projects
+    resp = get('/projects') 
+    JSON.parse(resp.body).map { |p| delete_project(p["id"]) }
+  end
+
   private
     def genesis_path
       "http://#{@host}:#{@port}"
