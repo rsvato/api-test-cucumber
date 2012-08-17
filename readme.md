@@ -1,12 +1,24 @@
 Genesis cucumber tests
 ======================
 
-You should have ruby installed with following gems:
+You should have ruby and rubygems (or jruby) installed.
 
-- Cucumber
-- HTTParty
+Steps to run
+------------
 
-Copy config.yml.sample to config.yml and edit it to reflect your settings:
+1. Install bundler:
+
+```
+gem install bundler
+```
+
+2. Install tests dependencies:
+
+```
+budle install
+```
+
+3. Copy config.yml.sample to config.yml and edit it to reflect your settings:
 
 ```yaml
 genesis:
@@ -15,6 +27,25 @@ genesis:
   user: user #user to use for tests
   password: pass #pass to use for tests
 ```
+
+4. Run tests:
+
+```
+bundle exec cucumber
+```
+
+or just 
+
+```
+cucumber
+```
+
+Note: with JRuby commands should be prefixed with
+
+```
+jruby -S ...
+```
+
 
 Expectations
 ------------
