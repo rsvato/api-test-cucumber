@@ -6,19 +6,19 @@ You should have ruby and rubygems (or jruby) installed.
 Steps to run
 ------------
 
-h3. Install bundler:
+### Install bundler:
 
 ```
 gem install bundler
 ```
 
-h3. Install tests dependencies:
+### Install tests dependencies:
 
 ```
 budle install
 ```
 
-h3. Copy config.yml.sample to config.yml and edit it to reflect your settings:
+### Copy config.yml.sample to config.yml and edit it to reflect your settings:
 
 ```yaml
 genesis:
@@ -28,7 +28,7 @@ genesis:
   password: pass #pass to use for tests
 ```
 
-h3. Run tests:
+### Run tests:
 
 ```
 bundle exec cucumber
