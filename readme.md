@@ -6,19 +6,19 @@ You should have ruby and rubygems (or jruby) installed.
 Steps to run
 ------------
 
-1. Install bundler:
+h3. Install bundler:
 
 ```
 gem install bundler
 ```
 
-2. Install tests dependencies:
+h3. Install tests dependencies:
 
 ```
 budle install
 ```
 
-3. Copy config.yml.sample to config.yml and edit it to reflect your settings:
+h3. Copy config.yml.sample to config.yml and edit it to reflect your settings:
 
 ```yaml
 genesis:
@@ -28,7 +28,7 @@ genesis:
   password: pass #pass to use for tests
 ```
 
-4. Run tests:
+h3. Run tests:
 
 ```
 bundle exec cucumber
@@ -51,3 +51,4 @@ Expectations
 ------------
 
 - Template Simple.genesis in subdir templates should be accessible for genesis instance
+- It's better to run tests in empty database to avoid possible interference
